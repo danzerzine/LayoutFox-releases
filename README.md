@@ -14,6 +14,8 @@
   &nbsp;·&nbsp;
   <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"><b>Скачать для Windows</b></a>
   &nbsp;·&nbsp;
+  <a href="CHANGELOG.md">Что нового</a>
+  &nbsp;·&nbsp;
   <a href="README.en.md">English</a>
 </p>
 
@@ -105,7 +107,7 @@ LayoutFox отправляет стирание и новое слово одн�
 
 **Windows.** Нужен [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) (x64). Скачайте [`LayoutFox.exe`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe) и положите в любую папку, где у вас есть право записи (не в Program Files), иначе обновление не сможет его заменить. Работает и с клавиатурой, которая приходит через Parsec с другого компьютера: многие переключатели такие нажатия не видят.
 
-Обновления программа ставит сама: скачивает новую версию, сверяет её контрольную сумму из `SHA256SUMS` и спрашивает, ставить ли.
+Обновления программа ставит сама: скачивает новую версию, сверяет её контрольную сумму из `SHA256SUMS` и спрашивает, ставить ли. Что изменилось в каждой версии, написано в [CHANGELOG.md](CHANGELOG.md).
 
 | | Windows | macOS |
 |---|---|---|

@@ -14,6 +14,8 @@
   &nbsp;·&nbsp;
   <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"><b>Download for Windows</b></a>
   &nbsp;·&nbsp;
+  <a href="CHANGELOG.md">What's new</a> (in Russian)
+  &nbsp;·&nbsp;
   <a href="README.md">Русский</a>
 </p>
 
@@ -105,7 +107,7 @@ The ground rule: breaking a correct word is 5 times worse than missing a wrong o
 
 **Windows.** Needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) (x64). Download [`LayoutFox.exe`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe) and put it in any folder you can write to (not Program Files), or updates won't be able to replace it. It also handles keys that arrive through Parsec from another computer, which many switchers don't see.
 
-The app updates itself: it downloads a new version, checks it against `SHA256SUMS` and asks before installing.
+The app updates itself: it downloads a new version, checks it against `SHA256SUMS` and asks before installing. What changed in each version is in [CHANGELOG.md](CHANGELOG.md) (in Russian).
 
 | | Windows | macOS |
 |---|---|---|

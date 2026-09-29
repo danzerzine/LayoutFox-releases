@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="assets/icon.png" width="128" height="128" alt="LayoutFox">
+  <img src="assets/icon.png" width="128" height="128" alt="LayoutFox — Russian/English keyboard layout switcher">
 </p>
 
 <h1 align="center">LayoutFox</h1>
 
 <p align="center">
-  An automatic Russian/English keyboard layout switcher for Windows and macOS.<br>
+  An automatic Russian/English keyboard layout switcher for macOS and Windows, an alternative to Punto Switcher and Caramba.<br>
   You type <code>ghbdtn</code>, the screen shows <code>привет</code>. Usually before you finish the word.
 </p>
 
@@ -100,6 +100,14 @@ The ground rule: breaking a correct word is 5 times worse than missing a wrong o
 | Mid-frequency words | 1,200 | 0 | 9 |
 | Rare words | 1,200 | 4 | 36 |
 | Traps | 914 | 0 | 16 |
+
+## FAQ
+
+**Is there a Punto Switcher for Mac?** LayoutFox does the same job on macOS 14 and later: it fixes a word typed in the wrong layout by itself, and double Shift converts a word or the selected text. The Mac and Windows versions share one core and decide the same way.
+
+**Does it work through Parsec and remote desktop?** Yes, with Parsec and with RDP (from a Mac through Windows App). LayoutFox on Windows sees the keys Parsec sends from another computer, which many switchers miss: that's why LayoutFox exists. If LayoutFox also runs on your Mac, it stays quiet in the Parsec and Windows App windows, so a word is never fixed twice. The Windows "Parsec only" mode skips RDP keys, since RDP sends them as an ordinary keyboard. We haven't tested other remote clients; for those, add the client to the exclusions on your Mac.
+
+**How is it different from Caramba and other switchers?** Replacing a word barely makes the line flicker (numbers above), it rarely spoils a correct word (0.13% on the bench), and your text never leaves your computer. Every rule is checked on a 5,156-word bench, and each misfire seen in real use becomes a test.
 
 ## Install
 

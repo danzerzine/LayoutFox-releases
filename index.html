@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LayoutFox — переключатель раскладки для Mac и Windows, замена Punto Switcher</title>
+<meta name="description" content="Автоматический переключатель раскладки RU/EN для macOS и Windows: набрали ghbdtn — на экране «привет», обычно ещё до конца слова. Альтернатива Punto Switcher и Caramba, работает через Parsec. Бесплатно.">
+<link rel="canonical" href="https://danzerzine.github.io/LayoutFox-releases/">
+<link rel="alternate" hreflang="ru" href="https://danzerzine.github.io/LayoutFox-releases/">
+<link rel="alternate" hreflang="en" href="https://danzerzine.github.io/LayoutFox-releases/en/">
+<link rel="alternate" hreflang="x-default" href="https://danzerzine.github.io/LayoutFox-releases/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LayoutFox — переключатель раскладки для Mac и Windows, замена Punto Switcher">
+<meta property="og:description" content="Автоматический переключатель раскладки RU/EN для macOS и Windows: набрали ghbdtn — на экране «привет», обычно ещё до конца слова. Альтернатива Punto Switcher и Caramba, работает через Parsec. Бесплатно.">
+<meta property="og:url" content="https://danzerzine.github.io/LayoutFox-releases/">
+<meta property="og:image" content="https://danzerzine.github.io/LayoutFox-releases/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<style>/* Roles: --fox, --fox-deep, --fox-light are the app icon's (mac/App/Icon.swift); --cream-* its tile; greys from mac/mockups. */
+:root {
+  --fox: #f07a1f; --fox-deep: #c9570f; --fox-light: #fff4e8;
+  --cream-hi: #fffaf3; --cream-lo: #f6e6d2;
+  --bg: #fffdf9; --surface: #ffffff; --text: #1d1d1f; --muted: #6e6e73; --faint: #a1a1a6; --line: #ece6dd;
+  --code-bg: #f5efe6; --link: var(--fox-deep);
+  --r-s: 8px; --r-m: 14px; --s-1: 4px; --s-2: 8px; --s-3: 16px; --s-4: 24px; --s-5: 40px; --s-6: 64px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1b1d; --surface: #232326; --text: #f5f5f7; --muted: #a1a1a6; --faint: #6e6e73; --line: #2e2e32;
+    --code-bg: #2c2c30; --link: #ffa45c; --cream-hi: #2a2a2d; --cream-lo: #1b1b1d;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+a { color: var(--link); text-underline-offset: 2px; }
+code { font: 0.88em var(--mono); background: var(--code-bg); padding: 1px 6px; border-radius: 6px; white-space: nowrap; }
+img { max-width: 100%; height: auto; }
+
+.top { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between;
+  padding: 10px var(--s-3); background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px); border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 650; color: var(--text); text-decoration: none; }
+.toplinks { display: flex; gap: var(--s-3); font-size: 15px; }
+.toplinks a { color: var(--muted); text-decoration: none; }
+.toplinks a:hover { color: var(--text); }
+
+.hero { text-align: center; padding: var(--s-6) var(--s-3) var(--s-5);
+  background: radial-gradient(120% 90% at 50% 0%, var(--cream-hi), var(--cream-lo) 70%, var(--bg)); }
+.appicon { width: 112px; height: 112px; border-radius: 24px; box-shadow: 0 10px 30px rgba(201, 87, 15, 0.18); }
+.hero h1 { font-size: clamp(40px, 7vw, 60px); line-height: 1.05; margin: var(--s-3) 0 var(--s-2); letter-spacing: -0.02em; }
+.lead { font-size: clamp(18px, 2.4vw, 21px); color: var(--muted); max-width: 640px; margin: 0 auto; }
+.demo { display: inline-flex; align-items: center; gap: var(--s-3); margin: var(--s-4) 0; padding: 12px 22px; border-radius: var(--r-m);
+  background: var(--surface); border: 1px solid var(--line); font: 22px var(--mono); }
+.demo .typed { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--fox); }
+.demo .arrow { color: var(--fox); }
+.demo .fixed { font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.btn { display: flex; flex-direction: column; align-items: center; min-width: 230px; padding: 12px 22px; border-radius: var(--r-m);
+  border: 1px solid var(--line); background: var(--surface); color: var(--text); font-weight: 600; text-decoration: none; }
+.btn small { font-weight: 400; font-size: 13px; color: var(--muted); }
+.btn.primary { background: var(--fox); border-color: var(--fox); color: #fff; }
+.btn.primary small { color: var(--fox-light); }
+.btn:hover { border-color: var(--fox); }
+.btn.primary:hover { background: var(--fox-deep); }
+.meta { margin-top: var(--s-3); font-size: 14px; color: var(--muted); }
+
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 var(--s-3); display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: var(--s-5); }
+.toc { position: sticky; top: 76px; align-self: start; display: flex; flex-direction: column; gap: 6px; padding-top: var(--s-5); font-size: 14px; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--fox-deep); }
+.doc { min-width: 0; max-width: 760px; padding-bottom: var(--s-6); }
+.doc h1 { font-size: 34px; margin: var(--s-5) 0 var(--s-3); }
+.doc h2 { font-size: 27px; line-height: 1.25; margin: var(--s-5) 0 var(--s-3); padding-top: var(--s-3); letter-spacing: -0.01em; }
+.doc h2:first-child { margin-top: var(--s-4); }
+.doc p, .doc li { color: var(--text); }
+.doc ul { padding-left: 1.2em; }
+.doc li { margin: var(--s-1) 0; }
+.doc li::marker { color: var(--fox); }
+.doc p[align="center"] { text-align: center; }
+.doc img[src$=".svg"] { display: block; margin: var(--s-4) auto; background: #fff; border-radius: var(--r-m); padding: var(--s-2); }
+.table { overflow-x: auto; margin: var(--s-4) 0; border: 1px solid var(--line); border-radius: var(--r-m); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font-weight: 600; color: var(--muted); font-size: 13px; }
+td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: tabular-nums; }
+.fine { color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: var(--s-3); margin-top: var(--s-5); }
+.foot { text-align: center; color: var(--muted); font-size: 14px; padding: var(--s-4) var(--s-3) var(--s-5); border-top: 1px solid var(--line); }
+.foot a { color: var(--muted); }
+
+@media (max-width: 860px) {
+  .wrap { display: block; }
+  .toc { display: none; }
+  .btn { min-width: 0; width: 100%; max-width: 340px; }
+  code { white-space: normal; }
+  body { font-size: 16px; }
+}
+
+/* Smoothness chart (was smooth-*.svg). Timeline: 0..35 ms; --bad / --good keep the SVG's meaning: erased word, new word. */
+:root { --bad: #ffd9b8; --bad-text: #7a3b00; --good: #d2f4df; --good-text: #0f5323; --word: #eef1f4; }
+@media (prefers-color-scheme: dark) { :root { --bad: #5a3310; --bad-text: #ffc38f; --good: #12391f; --good-text: #8ce2a8; --word: #2c2c30; } }
+.smooth { margin: var(--s-4) 0; padding: var(--s-4); border: 1px solid var(--line); border-radius: var(--r-m); background: var(--surface); }
+.smooth figcaption { font-weight: 600; font-size: 17px; margin-bottom: var(--s-3); }
+.srow { display: grid; grid-template-columns: 150px 84px minmax(0, 1fr); align-items: center; gap: 0 10px; margin: 14px 0 34px; }
+.who { display: flex; flex-direction: column; line-height: 1.25; }
+.who b { font-size: 15px; }
+.who small { color: var(--muted); font-size: 12px; }
+.who.fox b { color: var(--fox-deep); }
+.w { display: inline-flex; align-items: center; justify-content: center; height: 40px; width: 84px; border-radius: var(--r-s); font: 14px var(--mono); }
+.w.old { background: var(--word); }
+.w.new { position: absolute; top: 0; margin-left: 3px; background: var(--good); color: var(--good-text); }
+.line { position: relative; height: 40px; border-left: 1.5px solid var(--line); }
+.tick { position: absolute; top: -6px; bottom: -26px; border-left: 1px dashed var(--line); }
+.tick:first-child { border: 0; }
+.tick:nth-child(5) i { transform: translateX(-80%); }
+.srow:not(:last-of-type) .tick i { display: none; }
+.srow + .srow .tick i { display: block; }
+.tick i { position: absolute; bottom: -2px; transform: translateX(-50%); font-style: normal; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.gap { position: absolute; top: 0; left: 0; height: 40px; background: var(--bad); border-radius: 4px; display: flex; align-items: center; justify-content: center; overflow: visible; }
+.gap em { font-style: normal; font-size: 13px; color: var(--bad-text); white-space: nowrap; }
+.note { position: absolute; top: 10px; margin-left: 100px; font-size: 13px; color: var(--muted); white-space: nowrap; }
+.saxis { margin-left: calc(150px + 84px + 20px); font-size: 12px; color: var(--muted); margin-top: -6px; }
+.sfoot { font-size: 12px; color: var(--muted); margin: var(--s-3) 0 0; }
+@media (max-width: 860px) {
+  .smooth { padding: var(--s-3); }
+  .srow { grid-template-columns: 70px minmax(0, 1fr); grid-template-rows: auto 40px; gap: 8px 8px; margin-bottom: 40px; }
+  .who { grid-column: 1 / -1; flex-direction: row; gap: 8px; align-items: baseline; }
+  .w { width: 70px; font-size: 13px; }
+  .note { top: 62px; left: 0 !important; margin: 0; }
+  .srow:last-of-type { margin-bottom: 76px; }
+  .tick i, .gap em { font-size: 0; }
+  .tick i::after { content: attr(data-n); font-size: 11px; }
+  .gap em::after { content: attr(data-s); font-size: 12px; }
+  .saxis { margin-left: 78px; }
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "LayoutFox", "url": "https://danzerzine.github.io/LayoutFox-releases/", "description": "Автоматический переключатель раскладки RU/EN для macOS и Windows: набрали ghbdtn — на экране «привет», обычно ещё до конца слова. Альтернатива Punto Switcher и Caramba, работает через Parsec. Бесплатно.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 14+, Windows 10, Windows 11", "softwareVersion": "1.0.6", "inLanguage": "ru", "image": "https://danzerzine.github.io/LayoutFox-releases/assets/icon.png", "downloadUrl": ["https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip", "https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Есть ли Punto Switcher для Mac?", "acceptedAnswer": {"@type": "Answer", "text": "LayoutFox делает то же самое на macOS 14 и новее: сам исправляет слово, набранное не в той раскладке, а двойной Shift переводит слово или выделенный текст. Версии для Mac и Windows используют одно ядро и одинаково решают, что исправлять."}}, {"@type": "Question", "name": "Работает ли через Parsec и удалённый рабочий стол?", "acceptedAnswer": {"@type": "Answer", "text": "Да, с Parsec и с RDP (с Mac через Windows App). LayoutFox на Windows видит нажатия, которые Parsec присылает с другого компьютера, а многие переключатели их пропускают: из-за этого LayoutFox и появился. Если на Mac тоже стоит LayoutFox, в окнах Parsec и Windows App он молчит сам, и слово не исправляется дважды. Режим «Работает только для Parsec» на Windows нажатия из RDP пропускает: RDP присылает их как обычная клавиатура. Другие клиенты удалённого доступа мы не проверяли; для них добавьте клиент в исключения на своём Mac."}}, {"@type": "Question", "name": "Чем отличается от Caramba и других переключателей?", "acceptedAnswer": {"@type": "Answer", "text": "Замена почти не дёргает строку (цифры выше), правильное слово портится редко (0,13% на бенче), а ваш текст никуда не уходит. Решения проверяются на бенче из 5 156 слов, а каждая ошибка, замеченная в жизни, становится тестом."}}]}</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./"><img src="assets/icon.png" alt="" width="28" height="28">LayoutFox</a>
+  <nav class="toplinks"><a href="changelog/">Что нового</a><a href="en/" hreflang="en">English</a></nav>
+</header>
+<section class="hero">
+  <img class="appicon" src="assets/icon.png" alt="LayoutFox" width="112" height="112">
+  <h1>LayoutFox</h1>
+  <p class="lead">Автоматический переключатель раскладки RU/EN для macOS и Windows. Альтернатива Punto Switcher и Caramba.</p>
+  <div class="demo" aria-hidden="true"><span class="typed">ghbdtn</span><span class="arrow">→</span><span class="fixed">привет</span></div>
+  <div class="cta">
+    <a class="btn primary" data-os="mac" href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip">Скачать для macOS<small>macOS 14 и новее</small></a>
+    <a class="btn" data-os="win" href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe">Скачать для Windows<small>Windows 10 и 11, .NET 8</small></a>
+  </div>
+  <p class="meta">Бесплатно · Версия 1.0.6 · <a href="changelog/">Что нового</a></p>
+</section>
+<script>
+(function () {
+  var w = /Windows/.test(navigator.userAgent), a = document.querySelectorAll('.cta .btn');
+  if (w) { a[0].classList.remove('primary'); a[1].classList.add('primary'); a[1].parentNode.insertBefore(a[1], a[0]); }
+})();
+</script>
+<div class="wrap">
+<nav class="toc" aria-label="Разделы"><a href="#коротко-в-цифрах">Коротко в цифрах</a><a href="#замена-без-дёрганья">Замена без дёрганья</a><a href="#как-он-понимает-что-слово-не-в-той-раскладке">Как он понимает, что слово не в той раскладке</a><a href="#учится-у-вас-осторожно">Учится у вас, осторожно</a><a href="#приватность">Приватность</a><a href="#как-проверяется">Как проверяется</a><a href="#частые-вопросы">Частые вопросы</a><a href="#установка">Установка</a></nav>
+<main class="doc">
+<h2 id="коротко-в-цифрах">Коротко в цифрах</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Что</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Портит правильное слово</td>
+<td>4 раза на 2 976 слов (0,13%), только на редких словах; в живых фразах из чата ни разу</td>
+</tr>
+<tr>
+<td>Пропускает слово в чужой раскладке</td>
+<td>68 из 2 180 (3,1%)</td>
+</tr>
+<tr>
+<td>Исправляет прямо посреди слова</td>
+<td>79% исправлений, в среднем на 3-й букве</td>
+</tr>
+<tr>
+<td>Слово пропадает с экрана при замене</td>
+<td>1,7 мс против 18,5 мс у переключателя, который стирает и набирает заново</td>
+</tr>
+<tr>
+<td>Рваные кадры в Chrome, Telegram, VS Code</td>
+<td>0 из 63 замен</td>
+</tr>
+<tr>
+<td>Думает над нажатием</td>
+<td>0,06 мс на Windows, около 0,5 мс на Mac</td>
+</tr>
+<tr>
+<td>Отправляет ваш текст в интернет</td>
+<td>никогда</td>
+</tr>
+</tbody>
+</table></div>
+<p>Цифры взяты из бенча на 5 156 словах и замеров от 26.09.2026. Как они получены, написано ниже.</p>
+<h2 id="замена-без-дёрганья">Замена без дёрганья</h2>
+<p>Большинство переключателей исправляют слово так: стирают его по букве через Backspace, делают паузу и набирают заново. Между этими шагами экран успевает показать пустое место или полслова. Глаз это замечает: строка дёргается.</p>
+<p>LayoutFox отправляет стирание и новое слово одним пакетом нажатий. Мы записали каждое изменение текста в поле macOS на 26–27 исправлениях подряд:</p>
+<figure class="smooth" aria-label="Что видно на экране между старым и новым словом"><figcaption>Что видно на экране между старым и новым словом</figcaption><div class="srow"><div class="who"><b>Стереть и набрать</b><small>обычный переключатель</small></div><span class="w old">ghbdtn</span><div class="line"><span class="tick" style="left:0.00%"><i data-n="0">0</i></span><span class="tick" style="left:23.81%"><i data-n="1">1 кадр</i></span><span class="tick" style="left:47.62%"><i data-n="2">2 кадра</i></span><span class="tick" style="left:71.43%"><i data-n="3">3 кадра</i></span><span class="tick" style="left:95.24%"><i data-n="4">4 кадра</i></span><span class="gap" style="width:52.86%"><em data-s='18,5 мс'>слово стёрто: 18,5 мс</em></span><span class="w new" style="left:52.86%">привет</span></div></div><div class="srow"><div class="who fox"><b>LayoutFox</b><small>одним пакетом</small></div><span class="w old">ghbdtn</span><div class="line"><span class="tick" style="left:0.00%"><i data-n="0">0</i></span><span class="tick" style="left:23.81%"><i data-n="1">1 кадр</i></span><span class="tick" style="left:47.62%"><i data-n="2">2 кадра</i></span><span class="tick" style="left:71.43%"><i data-n="3">3 кадра</i></span><span class="tick" style="left:95.24%"><i data-n="4">4 кадра</i></span><span class="gap" style="width:4.86%"></span><span class="w new" style="left:4.86%">привет</span><span class=note style=left:4.86%>1,7 мс, вся замена ≈ 5 мс</span></div></div><div class="saxis"><span>кадры экрана 120 Гц, по 8,3 мс</span></div><p class="sfoot">Медиана самого долгого промежуточного состояния, 26 и 27 исправлений в текстовом поле macOS, замер 26.09.2026</p></figure>
+
+<div class="table"><table>
+<thead>
+<tr>
+<th></th>
+<th>Обычный переключатель</th>
+<th>LayoutFox</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Самое долгое промежуточное состояние (медиана)</td>
+<td>18,5 мс, до 32,5 мс</td>
+<td>1,7 мс</td>
+</tr>
+<tr>
+<td>Промежуточное состояние дольше одного кадра 120 Гц</td>
+<td>в 25 заменах из 26</td>
+<td>в 2 из 27</td>
+</tr>
+<tr>
+<td>Вся замена целиком</td>
+<td>11–32 мс только на паузу</td>
+<td>около 5 мс</td>
+</tr>
+</tbody>
+</table></div>
+<p>С программами на Chromium (Chrome, Claude, Telegram Desktop, VS Code) сложнее. Chromium рисует кадр сразу после первого события в пачке, как бы быстро ни шли следующие, поэтому даже быстрое стирание по буквам рвёт кадр в 5–20 заменах из 21. На Mac LayoutFox там выделяет старое слово через Accessibility, сверяет, что выделено именно оно, и печатает новое поверх одним событием. Результат: 0 рваных кадров в 63 заменах, на каждую около 0,9 мс.</p>
+<p>На Windows вся замена тоже уходит в систему одним пакетом.</p>
+<h2 id="как-он-понимает-что-слово-не-в-той-раскладке">Как он понимает, что слово не в той раскладке</h2>
+<p>Каждая буква хранится как нажатая клавиша, поэтому у слова всегда два прочтения, русское и английское. Решение принимается в два этапа.</p>
+<p><strong>Посреди слова.</strong> С третьей буквы LayoutFox сравнивает, как часто слова начинаются с каждого из прочтений (частоты взяты из <a href="https://github.com/rspeer/wordfreq">wordfreq</a>). Переключает, только если другое начало встречается в 1000 раз чаще. Порог подобран на 22 000 реальных слов: среди 5 000 самых частых слов каждого языка он не ошибся ни разу. Если сомневается, ждёт конца слова.</p>
+<p><strong>В конце слова</strong> (пробел, Enter, Tab) решают словари и контекст:</p>
+<ul>
+<li>Проверка орфографии самой системы, без скачиваемых словарей.</li>
+<li>Частоты слов, когда оба прочтения существуют: <code>ult</code> встречается 708 раз на миллиард слов, <code>где</code> 1,2 млн раз, значит переключаем.</li>
+<li>Соседние слова: <code>d ljvt</code> → <code>в доме</code>, <code>f ult</code> → <code>а где</code>.</li>
+<li>Опечатки: слово в чужой раскладке с одной опечаткой всё равно исправится, а вашу опечатку в правильной раскладке он не тронет.</li>
+<li>Знаки на цифровом ряду переводятся вместе со словом: <code>rfr&amp;</code> → <code>как?</code>, <code>lf!</code> → <code>да!</code>.</li>
+<li>Код не трогает: <code>README.md</code>, <code>snake_case</code>, <code>camelCase</code>, <code>x86</code> остаются как есть.</li>
+<li>Последнее слово строки успевает исправиться до Enter, так что сообщение в чат уходит уже правильным.</li>
+</ul>
+<p>Главное правило: испорченное правильное слово в 5 раз хуже пропущенного. Пропуск вы поправите двойным Shift, а испорченное слово раздражает. По этому правилу считается штраф в бенче и принимается каждое изменение.</p>
+<h2 id="учится-у-вас-осторожно">Учится у вас, осторожно</h2>
+<ul>
+<li><strong>Backspace сразу после исправления</strong> возвращает слово как было. Если вы отменили одно и то же исправление дважды, LayoutFox его запоминает и больше так не делает.</li>
+<li><strong>Двойной Shift</strong> отменяет свежее исправление, переводит текущее или последнее слово, а без слова просто меняет раскладку. На Mac он переводит и выделенный текст: <code>Ghbdtn? rfr ltkf&amp;</code> → <code>Привет, как дела?</code>.</li>
+<li><strong>Свои слова.</strong> Словари не знают «чекни», «кст» или «Qwen». Если вы дважды набрали такое слово правильно и продолжили писать, оно становится известным, и <code>xtryb</code> дальше исправится на <code>чекни</code>.</li>
+<li><strong>Исключения.</strong> Программу, где исправлять не надо, можно добавить прямо из меню.</li>
+</ul>
+<h2 id="приватность">Приватность</h2>
+<ul>
+<li>Набранный текст не покидает компьютер. Единственное обращение в сеть: раз в шесть часов проверить на GitHub, нет ли новой версии.</li>
+<li>Свои слова хранятся как 64-битные хеши, а не текстом.</li>
+<li>Пока открыто поле пароля, LayoutFox ничего не исправляет и не запоминает (macOS).</li>
+<li>Журнал отладки выключен по умолчанию.</li>
+</ul>
+<h2 id="как-проверяется">Как проверяется</h2>
+<ul>
+<li><strong>Бенч</strong> из 5 156 слов: фразы из живого чата (сленг, техника, команды, смешанный текст) и слова wordfreq от частых до редких, каждое набрано в правильной и в неправильной раскладке. Отдельно 914 слов-ловушек (бренды, аббревиатуры, код) и каждая ошибка, замеченная в жизни. Правило принимается, только если штраф падает.</li>
+<li><strong>Тест клавиш</strong> гоняет настоящий системный перехват клавиатуры и настоящие нажатия в окне, Chrome и TextEdit.</li>
+<li>Ошибка, найденная вживую, становится тестом навсегда: сейчас их 10, и все проходят.</li>
+</ul>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Бенч, 26.09.2026</th>
+<th style="text-align: right;">Слов</th>
+<th style="text-align: right;">Испорчено</th>
+<th style="text-align: right;">Пропущено</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Чат: обычный, техника, сленг, код</td>
+<td style="text-align: right;">1 556</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr>
+<td>Частые слова (топ-2 000)</td>
+<td style="text-align: right;">1 200</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Средние слова</td>
+<td style="text-align: right;">1 200</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr>
+<td>Редкие слова</td>
+<td style="text-align: right;">1 200</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">36</td>
+</tr>
+<tr>
+<td>Ловушки</td>
+<td style="text-align: right;">914</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="частые-вопросы">Частые вопросы</h2>
+<p><strong>Есть ли Punto Switcher для Mac?</strong> LayoutFox делает то же самое на macOS 14 и новее: сам исправляет слово, набранное не в той раскладке, а двойной Shift переводит слово или выделенный текст. Версии для Mac и Windows используют одно ядро и одинаково решают, что исправлять.</p>
+<p><strong>Работает ли через Parsec и удалённый рабочий стол?</strong> Да, с Parsec и с RDP (с Mac через Windows App). LayoutFox на Windows видит нажатия, которые Parsec присылает с другого компьютера, а многие переключатели их пропускают: из-за этого LayoutFox и появился. Если на Mac тоже стоит LayoutFox, в окнах Parsec и Windows App он молчит сам, и слово не исправляется дважды. Режим «Работает только для Parsec» на Windows нажатия из RDP пропускает: RDP присылает их как обычная клавиатура. Другие клиенты удалённого доступа мы не проверяли; для них добавьте клиент в исключения на своём Mac.</p>
+<p><strong>Чем отличается от Caramba и других переключателей?</strong> Замена почти не дёргает строку (цифры выше), правильное слово портится редко (0,13% на бенче), а ваш текст никуда не уходит. Решения проверяются на бенче из 5 156 слов, а каждая ошибка, замеченная в жизни, становится тестом.</p>
+<h2 id="установка">Установка</h2>
+<p><strong>macOS 14 и новее.</strong> Скачайте <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip"><code>LayoutFox-mac.zip</code></a>, распакуйте и перенесите LayoutFox.app в «Программы». Приложение подписано собственным сертификатом, а не Apple, поэтому при первом запуске macOS его не откроет: зайдите в «Системные настройки → Конфиденциальность и безопасность» и нажмите «Всё равно открыть». Потом дайте доступ в «Универсальном доступе», окно само подскажет, где это.</p>
+<p><strong>Windows.</strong> Нужен <a href="https://dotnet.microsoft.com/download/dotnet/8.0">.NET 8 Desktop Runtime</a> (x64). Скачайте <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"><code>LayoutFox.exe</code></a> и положите в любую папку, где у вас есть право записи (не в Program Files), иначе обновление не сможет его заменить. Работает и с клавиатурой, которая приходит через Parsec с другого компьютера: многие переключатели такие нажатия не видят.</p>
+<p>Обновления программа ставит сама: скачивает новую версию, сверяет её контрольную сумму из <code>SHA256SUMS</code> и спрашивает, ставить ли. Что изменилось в каждой версии, написано в <a href="changelog/">CHANGELOG.md</a>.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th></th>
+<th>Windows</th>
+<th>macOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Размер</td>
+<td>exe 4,1 МБ</td>
+<td>zip 4,5 МБ</td>
+</tr>
+<tr>
+<td>Память</td>
+<td>32 МБ</td>
+<td>45 МБ</td>
+</tr>
+</tbody>
+</table></div><p class="fine">Частоты слов: <a href="https://github.com/rspeer/wordfreq">wordfreq</a>, лицензия CC BY-SA 4.0. Код программы закрыт, здесь лежат только готовые сборки.</p>
+</main>
+</div>
+<footer class="foot"><a href="https://github.com/danzerzine/LayoutFox-releases">Сборки на GitHub</a> · Версия 1.0.6</footer>
+</body>
+</html>

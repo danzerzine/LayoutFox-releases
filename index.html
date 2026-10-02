@@ -53,6 +53,8 @@ img { max-width: 100%; height: auto; }
   background: radial-gradient(120% 90% at 50% 0%, var(--cream-hi), var(--cream-lo) 70%, var(--bg)); }
 .appicon { width: 112px; height: 112px; border-radius: 24px; box-shadow: 0 10px 30px rgba(201, 87, 15, 0.18); }
 .hero h1 { font-size: clamp(40px, 7vw, 60px); line-height: 1.05; margin: var(--s-3) 0 var(--s-2); letter-spacing: -0.02em; }
+.launch { display: block; width: 100%; max-width: 960px; height: auto; margin: var(--s-5) auto 0; border-radius: var(--r-m);
+  box-shadow: 0 10px 30px rgba(201, 87, 15, 0.18); background: var(--surface); }
 .lead { font-size: clamp(18px, 2.4vw, 21px); color: var(--muted); max-width: 640px; margin: 0 auto; }
 .demo { display: inline-flex; align-items: center; gap: var(--s-3); margin: var(--s-4) 0; padding: 12px 22px; border-radius: var(--r-m);
   background: var(--surface); border: 1px solid var(--line); font: 22px var(--mono); }
@@ -156,6 +158,8 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
     <a class="btn" data-os="win" href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe">Скачать для Windows<small>Windows 10 и 11, .NET 8</small></a>
   </div>
   <p class="meta">Бесплатно · Версия 1.0.6 · <a href="changelog/">Что нового</a></p>
+  <video class="launch" src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls playsinline preload="metadata"
+         width="1920" height="1080" aria-label="Ролик: LayoutFox исправляет ghbdtn на привет посреди слова"></video>
 </section>
 <script>
 (function () {

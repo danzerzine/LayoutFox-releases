@@ -141,7 +141,7 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
   .saxis { margin-left: 78px; }
 }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "LayoutFox", "url": "https://danzerzine.github.io/LayoutFox-releases/en/", "description": "Automatic Russian/English keyboard layout switcher for macOS and Windows: type ghbdtn and the screen shows привет, usually before you finish the word. An alternative to Punto Switcher and Caramba. Free.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 14+, Windows 10, Windows 11", "softwareVersion": "1.0.7", "inLanguage": "en", "image": "https://danzerzine.github.io/LayoutFox-releases/assets/icon.png", "downloadUrl": ["https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip", "https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there a Punto Switcher for Mac?", "acceptedAnswer": {"@type": "Answer", "text": "LayoutFox does the same job on macOS 14 and later: it fixes a word typed in the wrong layout by itself, and double Shift converts a word or the selected text. The Mac and Windows versions share one core and decide the same way."}}, {"@type": "Question", "name": "Does it work through Parsec and remote desktop?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with Parsec and with RDP (from a Mac through Windows App). LayoutFox on Windows sees the keys Parsec sends from another computer, which many switchers miss: that's why LayoutFox exists. If LayoutFox also runs on your Mac, it stays quiet in the Parsec and Windows App windows, so a word is never fixed twice. The Windows \"Parsec only\" mode skips RDP keys, since RDP sends them as an ordinary keyboard. We haven't tested other remote clients; for those, add the client to the exclusions on your Mac."}}, {"@type": "Question", "name": "How is it different from Caramba and other switchers?", "acceptedAnswer": {"@type": "Answer", "text": "Replacing a word barely makes the line flicker (numbers above), it rarely spoils a correct word (0.13% on the bench), and your text never leaves your computer. Every rule is checked on a 5,156-word bench, and each misfire seen in real use becomes a test."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "LayoutFox", "url": "https://danzerzine.github.io/LayoutFox-releases/en/", "description": "Automatic Russian/English keyboard layout switcher for macOS and Windows: type ghbdtn and the screen shows привет, usually before you finish the word. An alternative to Punto Switcher and Caramba. Free.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 14+ (Apple Silicon), Windows 10, Windows 11", "softwareVersion": "1.0.8", "inLanguage": "en", "image": "https://danzerzine.github.io/LayoutFox-releases/assets/icon.png", "downloadUrl": ["https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip", "https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there a Punto Switcher for Mac?", "acceptedAnswer": {"@type": "Answer", "text": "LayoutFox does the same job on macOS 14 and later (Macs with M1 or newer): it fixes a word typed in the wrong layout by itself, and double Shift converts a word or the selected text. The Mac and Windows versions share one core and decide the same way."}}, {"@type": "Question", "name": "Does it work through Parsec and remote desktop?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with Parsec and with RDP (from a Mac through Windows App). LayoutFox on Windows sees the keys Parsec sends from another computer, which many switchers miss: that's why LayoutFox exists. If LayoutFox also runs on your Mac, it stays quiet in the Parsec and Windows App windows, so a word is never fixed twice. The Windows \"Parsec only\" mode skips RDP keys, since RDP sends them as an ordinary keyboard. We haven't tested other remote clients; for those, add the client to the exclusions on your Mac."}}, {"@type": "Question", "name": "How is it different from Caramba and other switchers?", "acceptedAnswer": {"@type": "Answer", "text": "Replacing a word barely makes the line flicker (numbers above), it rarely spoils a correct word (0.1% on the bench), and your text never leaves your computer. Every rule is checked on a 5,156-word bench, and each misfire seen in real use becomes a test."}}]}</script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "cd215d1524f24e51a923d1c68568af30"}'></script>
 </head>
 <body>
@@ -155,10 +155,10 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
   <p class="lead">An automatic Russian/English keyboard layout switcher for macOS and Windows. An alternative to Punto Switcher and Caramba.</p>
   <div class="demo" aria-hidden="true"><span class="typed">ghbdtn</span><span class="arrow">→</span><span class="fixed">привет</span></div>
   <div class="cta">
-    <a class="btn primary" data-os="mac" href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip">Download for macOS<small>macOS 14 or later</small></a>
+    <a class="btn primary" data-os="mac" href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip">Download for macOS<small>macOS 14 or later, Apple Silicon</small></a>
     <a class="btn" data-os="win" href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe">Download for Windows<small>Windows 10 and 11, .NET 8</small></a>
   </div>
-  <p class="meta">Free · Version 1.0.7 · <a href="../changelog/">What's new</a></p>
+  <p class="meta">Free · Version 1.0.8 · <a href="../changelog/">What's new</a></p>
   <video class="launch" src="../assets/launch.mp4" poster="../assets/launch-poster.jpg" controls playsinline preload="metadata"
          width="1920" height="1080" aria-label="Video: LayoutFox turns ghbdtn into привет mid-word"></video>
 </section>
@@ -182,15 +182,15 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 <tbody>
 <tr>
 <td>Breaks a correctly typed word</td>
-<td>4 times in 2,976 words (0.13%), rare words only; never in real chat phrases</td>
+<td>3 times in 2,975 words (0.1%), rare words only; never in real chat phrases</td>
 </tr>
 <tr>
 <td>Misses a word typed in the wrong layout</td>
-<td>68 of 2,180 (3.1%)</td>
+<td>58 of 2,181 (2.7%)</td>
 </tr>
 <tr>
 <td>Fixes the word while you are still typing it</td>
-<td>79% of fixes, at the 3rd letter on average</td>
+<td>77% of fixes, at the 3rd letter on average</td>
 </tr>
 <tr>
 <td>The word disappears during a fix</td>
@@ -274,14 +274,14 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 </ul>
 <h2 id="how-it-is-tested">How it is tested</h2>
 <ul>
-<li><strong>The bench</strong> has 5,156 words: phrases from real chats (slang, tech talk, commands, mixed Russian and English) and wordfreq words from common to rare, each typed in the right and in the wrong layout. On top of that come 914 trap words (brands, abbreviations, code) and every misfire seen in real use. A rule is accepted only if the penalty goes down.</li>
+<li><strong>The bench</strong> has 5,156 words: phrases from real chats (slang, tech talk, commands, mixed Russian and English) and wordfreq words from common to rare, each typed in the right and in the wrong layout. On top of that come 1,106 trap words (brands, abbreviations, code) and every misfire seen in real use. A rule is accepted only if the penalty goes down.</li>
 <li><strong>The key test</strong> runs the real system keyboard hook with real key presses into its own window, Chrome and TextEdit.</li>
-<li>A misfire found in real use becomes a test for good: there are 10 of them now, and all pass.</li>
+<li>A misfire found in real use becomes a test for good: there are 15 of them now, and all pass.</li>
 </ul>
 <div class="table"><table>
 <thead>
 <tr>
-<th>Bench, 26.09.2026</th>
+<th>Bench, 02.10.2026, Mac</th>
 <th style="text-align: right;">Words</th>
 <th style="text-align: right;">Broken</th>
 <th style="text-align: right;">Missed</th>
@@ -292,7 +292,7 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 <td>Chat: everyday, tech, slang, code</td>
 <td style="text-align: right;">1,556</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">22</td>
+<td style="text-align: right;">13</td>
 </tr>
 <tr>
 <td>Common words (top 2,000)</td>
@@ -309,24 +309,24 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 <tr>
 <td>Rare words</td>
 <td style="text-align: right;">1,200</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">36</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">35</td>
 </tr>
 <tr>
 <td>Traps</td>
-<td style="text-align: right;">914</td>
+<td style="text-align: right;">1,106</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: right;">12</td>
 </tr>
 </tbody>
 </table></div>
 <h2 id="faq">FAQ</h2>
-<p><strong>Is there a Punto Switcher for Mac?</strong> LayoutFox does the same job on macOS 14 and later: it fixes a word typed in the wrong layout by itself, and double Shift converts a word or the selected text. The Mac and Windows versions share one core and decide the same way.</p>
+<p><strong>Is there a Punto Switcher for Mac?</strong> LayoutFox does the same job on macOS 14 and later (Macs with M1 or newer): it fixes a word typed in the wrong layout by itself, and double Shift converts a word or the selected text. The Mac and Windows versions share one core and decide the same way.</p>
 <p><strong>Does it work through Parsec and remote desktop?</strong> Yes, with Parsec and with RDP (from a Mac through Windows App). LayoutFox on Windows sees the keys Parsec sends from another computer, which many switchers miss: that's why LayoutFox exists. If LayoutFox also runs on your Mac, it stays quiet in the Parsec and Windows App windows, so a word is never fixed twice. The Windows "Parsec only" mode skips RDP keys, since RDP sends them as an ordinary keyboard. We haven't tested other remote clients; for those, add the client to the exclusions on your Mac.</p>
-<p><strong>How is it different from Caramba and other switchers?</strong> Replacing a word barely makes the line flicker (numbers above), it rarely spoils a correct word (0.13% on the bench), and your text never leaves your computer. Every rule is checked on a 5,156-word bench, and each misfire seen in real use becomes a test.</p>
+<p><strong>How is it different from Caramba and other switchers?</strong> Replacing a word barely makes the line flicker (numbers above), it rarely spoils a correct word (0.1% on the bench), and your text never leaves your computer. Every rule is checked on a 5,156-word bench, and each misfire seen in real use becomes a test.</p>
 <h2 id="install">Install</h2>
-<p><strong>macOS 14 or later.</strong> Download <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip"><code>LayoutFox-mac.zip</code></a>, unzip it and move LayoutFox.app to Applications. With Homebrew one command does the same: <code>brew install --cask danzerzine/tap/layoutfox</code>. The app is signed with its own certificate rather than Apple's, so macOS won't open it the first time: go to System Settings → Privacy &amp; Security and click "Open Anyway". Then grant Accessibility access; the app shows where.</p>
-<p><strong>Windows.</strong> Needs the <a href="https://dotnet.microsoft.com/download/dotnet/8.0">.NET 8 Desktop Runtime</a> (x64). Download <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"><code>LayoutFox.exe</code></a> and put it in any folder you can write to (not Program Files), or updates won't be able to replace it. It also handles keys that arrive through Parsec from another computer, which many switchers don't see.</p>
+<p><strong>macOS 14 or later, Apple Silicon Mac (M1 or newer).</strong> Download <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip"><code>LayoutFox-mac.zip</code></a>, unzip it and move LayoutFox.app to Applications. With Homebrew one command does the same: <code>brew install --cask danzerzine/tap/layoutfox</code>. The app is signed with its own certificate rather than Apple's, so macOS won't open it the first time: go to System Settings → Privacy &amp; Security and click "Open Anyway". Then grant Accessibility access; the app shows where.</p>
+<p><strong>Windows.</strong> Needs the <a href="https://dotnet.microsoft.com/download/dotnet/8.0">.NET 8 Desktop Runtime</a> (x64). Download <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"><code>LayoutFox.exe</code></a> and put it in any folder you can write to (not Program Files), or updates won't be able to replace it. The exe is not signed, so on the first run Windows may show a blue "Windows protected your PC" window: click "More info", then "Run anyway". It also handles keys that arrive through Parsec from another computer, which many switchers don't see.</p>
 <p>The app updates itself: it downloads a new version, checks it against <code>SHA256SUMS</code> and asks before installing. What changed in each version is in <a href="../changelog/">CHANGELOG.md</a> (in Russian).</p>
 <div class="table"><table>
 <thead>
@@ -352,6 +352,6 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 <p>The interface is in Russian.</p><p class="fine">Word frequencies: <a href="https://github.com/rspeer/wordfreq">wordfreq</a>, CC BY-SA 4.0. The source code is private; this repository holds the ready builds only.</p>
 </main>
 </div>
-<footer class="foot"><a href="https://github.com/danzerzine/LayoutFox-releases">Builds on GitHub</a> · Version 1.0.7</footer>
+<footer class="foot"><a href="https://github.com/danzerzine/LayoutFox-releases">Builds on GitHub</a> · Version 1.0.8</footer>
 </body>
 </html>

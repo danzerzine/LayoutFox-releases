@@ -141,7 +141,7 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
   .saxis { margin-left: 78px; }
 }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "LayoutFox", "url": "https://danzerzine.github.io/LayoutFox-releases/", "description": "Автоматический переключатель раскладки RU/EN для macOS и Windows: набрали ghbdtn — на экране «привет», обычно ещё до конца слова. Альтернатива Punto Switcher и Caramba, работает через Parsec. Бесплатно.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 14+, Windows 10, Windows 11", "softwareVersion": "1.0.7", "inLanguage": "ru", "image": "https://danzerzine.github.io/LayoutFox-releases/assets/icon.png", "downloadUrl": ["https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip", "https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Есть ли Punto Switcher для Mac?", "acceptedAnswer": {"@type": "Answer", "text": "LayoutFox делает то же самое на macOS 14 и новее: сам исправляет слово, набранное не в той раскладке, а двойной Shift переводит слово или выделенный текст. Версии для Mac и Windows используют одно ядро и одинаково решают, что исправлять."}}, {"@type": "Question", "name": "Работает ли через Parsec и удалённый рабочий стол?", "acceptedAnswer": {"@type": "Answer", "text": "Да, с Parsec и с RDP (с Mac через Windows App). LayoutFox на Windows видит нажатия, которые Parsec присылает с другого компьютера, а многие переключатели их пропускают: из-за этого LayoutFox и появился. Если на Mac тоже стоит LayoutFox, в окнах Parsec и Windows App он молчит сам, и слово не исправляется дважды. Режим «Работает только для Parsec» на Windows нажатия из RDP пропускает: RDP присылает их как обычная клавиатура. Другие клиенты удалённого доступа мы не проверяли; для них добавьте клиент в исключения на своём Mac."}}, {"@type": "Question", "name": "Чем отличается от Caramba и других переключателей?", "acceptedAnswer": {"@type": "Answer", "text": "Замена почти не дёргает строку (цифры выше), правильное слово портится редко (0,13% на бенче), а ваш текст никуда не уходит. Решения проверяются на бенче из 5 156 слов, а каждая ошибка, замеченная в жизни, становится тестом."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "LayoutFox", "url": "https://danzerzine.github.io/LayoutFox-releases/", "description": "Автоматический переключатель раскладки RU/EN для macOS и Windows: набрали ghbdtn — на экране «привет», обычно ещё до конца слова. Альтернатива Punto Switcher и Caramba, работает через Parsec. Бесплатно.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 14+ (Apple Silicon), Windows 10, Windows 11", "softwareVersion": "1.0.8", "inLanguage": "ru", "image": "https://danzerzine.github.io/LayoutFox-releases/assets/icon.png", "downloadUrl": ["https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip", "https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Есть ли Punto Switcher для Mac?", "acceptedAnswer": {"@type": "Answer", "text": "LayoutFox делает то же самое на macOS 14 и новее (Mac с M1 и новее): сам исправляет слово, набранное не в той раскладке, а двойной Shift переводит слово или выделенный текст. Версии для Mac и Windows используют одно ядро и одинаково решают, что исправлять."}}, {"@type": "Question", "name": "Работает ли через Parsec и удалённый рабочий стол?", "acceptedAnswer": {"@type": "Answer", "text": "Да, с Parsec и с RDP (с Mac через Windows App). LayoutFox на Windows видит нажатия, которые Parsec присылает с другого компьютера, а многие переключатели их пропускают: из-за этого LayoutFox и появился. Если на Mac тоже стоит LayoutFox, в окнах Parsec и Windows App он молчит сам, и слово не исправляется дважды. Режим «Работает только для Parsec» на Windows нажатия из RDP пропускает: RDP присылает их как обычная клавиатура. Другие клиенты удалённого доступа мы не проверяли; для них добавьте клиент в исключения на своём Mac."}}, {"@type": "Question", "name": "Чем отличается от Caramba и других переключателей?", "acceptedAnswer": {"@type": "Answer", "text": "Замена почти не дёргает строку (цифры выше), правильное слово портится редко (0,1% на бенче), а ваш текст никуда не уходит. Решения проверяются на бенче из 5 156 слов, а каждая ошибка, замеченная в жизни, становится тестом."}}]}</script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "cd215d1524f24e51a923d1c68568af30"}'></script>
 </head>
 <body>
@@ -155,10 +155,10 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
   <p class="lead">Автоматический переключатель раскладки RU/EN для macOS и Windows. Альтернатива Punto Switcher и Caramba.</p>
   <div class="demo" aria-hidden="true"><span class="typed">ghbdtn</span><span class="arrow">→</span><span class="fixed">привет</span></div>
   <div class="cta">
-    <a class="btn primary" data-os="mac" href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip">Скачать для macOS<small>macOS 14 и новее</small></a>
+    <a class="btn primary" data-os="mac" href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip">Скачать для macOS<small>macOS 14 и новее, Apple Silicon</small></a>
     <a class="btn" data-os="win" href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe">Скачать для Windows<small>Windows 10 и 11, .NET 8</small></a>
   </div>
-  <p class="meta">Бесплатно · Версия 1.0.7 · <a href="changelog/">Что нового</a></p>
+  <p class="meta">Бесплатно · Версия 1.0.8 · <a href="changelog/">Что нового</a></p>
   <video class="launch" src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls playsinline preload="metadata"
          width="1920" height="1080" aria-label="Ролик: LayoutFox исправляет ghbdtn на привет посреди слова"></video>
 </section>
@@ -182,15 +182,15 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 <tbody>
 <tr>
 <td>Портит правильное слово</td>
-<td>4 раза на 2 976 слов (0,13%), только на редких словах; в живых фразах из чата ни разу</td>
+<td>3 раза на 2 975 слов (0,1%), только на редких словах; в живых фразах из чата ни разу</td>
 </tr>
 <tr>
 <td>Пропускает слово в чужой раскладке</td>
-<td>68 из 2 180 (3,1%)</td>
+<td>58 из 2 181 (2,7%)</td>
 </tr>
 <tr>
 <td>Исправляет прямо посреди слова</td>
-<td>79% исправлений, в среднем на 3-й букве</td>
+<td>77% исправлений, в среднем на 3-й букве</td>
 </tr>
 <tr>
 <td>Слово пропадает с экрана при замене</td>
@@ -274,14 +274,14 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 </ul>
 <h2 id="как-проверяется">Как проверяется</h2>
 <ul>
-<li><strong>Бенч</strong> из 5 156 слов: фразы из живого чата (сленг, техника, команды, смешанный текст) и слова wordfreq от частых до редких, каждое набрано в правильной и в неправильной раскладке. Отдельно 914 слов-ловушек (бренды, аббревиатуры, код) и каждая ошибка, замеченная в жизни. Правило принимается, только если штраф падает.</li>
+<li><strong>Бенч</strong> из 5 156 слов: фразы из живого чата (сленг, техника, команды, смешанный текст) и слова wordfreq от частых до редких, каждое набрано в правильной и в неправильной раскладке. Отдельно 1 106 слов-ловушек (бренды, аббревиатуры, код) и каждая ошибка, замеченная в жизни. Правило принимается, только если штраф падает.</li>
 <li><strong>Тест клавиш</strong> гоняет настоящий системный перехват клавиатуры и настоящие нажатия в окне, Chrome и TextEdit.</li>
-<li>Ошибка, найденная вживую, становится тестом навсегда: сейчас их 10, и все проходят.</li>
+<li>Ошибка, найденная вживую, становится тестом навсегда: сейчас их 15, и все проходят.</li>
 </ul>
 <div class="table"><table>
 <thead>
 <tr>
-<th>Бенч, 26.09.2026</th>
+<th>Бенч, 02.10.2026, Mac</th>
 <th style="text-align: right;">Слов</th>
 <th style="text-align: right;">Испорчено</th>
 <th style="text-align: right;">Пропущено</th>
@@ -292,7 +292,7 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 <td>Чат: обычный, техника, сленг, код</td>
 <td style="text-align: right;">1 556</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">22</td>
+<td style="text-align: right;">13</td>
 </tr>
 <tr>
 <td>Частые слова (топ-2 000)</td>
@@ -309,24 +309,24 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 <tr>
 <td>Редкие слова</td>
 <td style="text-align: right;">1 200</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">36</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">35</td>
 </tr>
 <tr>
 <td>Ловушки</td>
-<td style="text-align: right;">914</td>
+<td style="text-align: right;">1 106</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: right;">12</td>
 </tr>
 </tbody>
 </table></div>
 <h2 id="частые-вопросы">Частые вопросы</h2>
-<p><strong>Есть ли Punto Switcher для Mac?</strong> LayoutFox делает то же самое на macOS 14 и новее: сам исправляет слово, набранное не в той раскладке, а двойной Shift переводит слово или выделенный текст. Версии для Mac и Windows используют одно ядро и одинаково решают, что исправлять.</p>
+<p><strong>Есть ли Punto Switcher для Mac?</strong> LayoutFox делает то же самое на macOS 14 и новее (Mac с M1 и новее): сам исправляет слово, набранное не в той раскладке, а двойной Shift переводит слово или выделенный текст. Версии для Mac и Windows используют одно ядро и одинаково решают, что исправлять.</p>
 <p><strong>Работает ли через Parsec и удалённый рабочий стол?</strong> Да, с Parsec и с RDP (с Mac через Windows App). LayoutFox на Windows видит нажатия, которые Parsec присылает с другого компьютера, а многие переключатели их пропускают: из-за этого LayoutFox и появился. Если на Mac тоже стоит LayoutFox, в окнах Parsec и Windows App он молчит сам, и слово не исправляется дважды. Режим «Работает только для Parsec» на Windows нажатия из RDP пропускает: RDP присылает их как обычная клавиатура. Другие клиенты удалённого доступа мы не проверяли; для них добавьте клиент в исключения на своём Mac.</p>
-<p><strong>Чем отличается от Caramba и других переключателей?</strong> Замена почти не дёргает строку (цифры выше), правильное слово портится редко (0,13% на бенче), а ваш текст никуда не уходит. Решения проверяются на бенче из 5 156 слов, а каждая ошибка, замеченная в жизни, становится тестом.</p>
+<p><strong>Чем отличается от Caramba и других переключателей?</strong> Замена почти не дёргает строку (цифры выше), правильное слово портится редко (0,1% на бенче), а ваш текст никуда не уходит. Решения проверяются на бенче из 5 156 слов, а каждая ошибка, замеченная в жизни, становится тестом.</p>
 <h2 id="установка">Установка</h2>
-<p><strong>macOS 14 и новее.</strong> Скачайте <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip"><code>LayoutFox-mac.zip</code></a>, распакуйте и перенесите LayoutFox.app в «Программы». С Homebrew то же самое делает одна команда: <code>brew install --cask danzerzine/tap/layoutfox</code>. Приложение подписано собственным сертификатом, а не Apple, поэтому при первом запуске macOS его не откроет: зайдите в «Системные настройки → Конфиденциальность и безопасность» и нажмите «Всё равно открыть». Потом дайте доступ в «Универсальном доступе», окно само подскажет, где это.</p>
-<p><strong>Windows.</strong> Нужен <a href="https://dotnet.microsoft.com/download/dotnet/8.0">.NET 8 Desktop Runtime</a> (x64). Скачайте <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"><code>LayoutFox.exe</code></a> и положите в любую папку, где у вас есть право записи (не в Program Files), иначе обновление не сможет его заменить. Работает и с клавиатурой, которая приходит через Parsec с другого компьютера: многие переключатели такие нажатия не видят.</p>
+<p><strong>macOS 14 и новее, Mac на Apple Silicon (M1 и новее).</strong> Скачайте <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip"><code>LayoutFox-mac.zip</code></a>, распакуйте и перенесите LayoutFox.app в «Программы». С Homebrew то же самое делает одна команда: <code>brew install --cask danzerzine/tap/layoutfox</code>. Приложение подписано собственным сертификатом, а не Apple, поэтому при первом запуске macOS его не откроет: зайдите в «Системные настройки → Конфиденциальность и безопасность» и нажмите «Всё равно открыть». Потом дайте доступ в «Универсальном доступе», окно само подскажет, где это.</p>
+<p><strong>Windows.</strong> Нужен <a href="https://dotnet.microsoft.com/download/dotnet/8.0">.NET 8 Desktop Runtime</a> (x64). Скачайте <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"><code>LayoutFox.exe</code></a> и положите в любую папку, где у вас есть право записи (не в Program Files), иначе обновление не сможет его заменить. Программа не подписана, поэтому при первом запуске Windows может показать синее окно «Windows защитила ваш компьютер»: нажмите «Подробнее», потом «Выполнить в любом случае». Работает и с клавиатурой, которая приходит через Parsec с другого компьютера: многие переключатели такие нажатия не видят.</p>
 <p>Обновления программа ставит сама: скачивает новую версию, сверяет её контрольную сумму из <code>SHA256SUMS</code> и спрашивает, ставить ли. Что изменилось в каждой версии, написано в <a href="changelog/">CHANGELOG.md</a>.</p>
 <div class="table"><table>
 <thead>
@@ -351,6 +351,6 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 </table></div><p class="fine">Частоты слов: <a href="https://github.com/rspeer/wordfreq">wordfreq</a>, лицензия CC BY-SA 4.0. Код программы закрыт, здесь лежат только готовые сборки.</p>
 </main>
 </div>
-<footer class="foot"><a href="https://github.com/danzerzine/LayoutFox-releases">Сборки на GitHub</a> · Версия 1.0.7</footer>
+<footer class="foot"><a href="https://github.com/danzerzine/LayoutFox-releases">Сборки на GitHub</a> · Версия 1.0.8</footer>
 </body>
 </html>

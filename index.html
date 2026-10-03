@@ -72,6 +72,8 @@ img { max-width: 100%; height: auto; }
 .meta { margin-top: var(--s-3); font-size: 14px; color: var(--muted); }
 
 .wrap { max-width: 1060px; margin: 0 auto; padding: 0 var(--s-3); display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: var(--s-5); }
+.wrap.solo { display: block; }  /* no table of contents (changelog): the text takes the page, not the toc column */
+.wrap.solo .doc { margin: 0 auto; }
 .toc { position: sticky; top: 76px; align-self: start; display: flex; flex-direction: column; gap: 6px; padding-top: var(--s-5); font-size: 14px; }
 .toc a { color: var(--muted); text-decoration: none; }
 .toc a:hover { color: var(--fox-deep); }

@@ -25,9 +25,9 @@
 
 | What | Result |
 |---|---|
-| Breaks a correctly typed word | 4 times in 2,976 words (0.13%), rare words only; never in real chat phrases |
-| Misses a word typed in the wrong layout | 68 of 2,180 (3.1%) |
-| Fixes the word while you are still typing it | 79% of fixes, at the 3rd letter on average |
+| Breaks a correctly typed word | 3 times in 2,975 words (0.1%), rare words only; never in real chat phrases |
+| Misses a word typed in the wrong layout | 58 of 2,181 (2.7%) |
+| Fixes the word while you are still typing it | 77% of fixes, at the 3rd letter on average |
 | The word disappears during a fix | 1.7 ms, against 18.5 ms for a switcher that erases and retypes |
 | Torn frames in Chrome, Telegram, VS Code | 0 in 63 fixes |
 | Time spent on a key press | 0.06 ms on Windows, about 0.5 ms on the Mac |
@@ -89,31 +89,31 @@ The ground rule: breaking a correct word is 5 times worse than missing a wrong o
 
 ## How it is tested
 
-- **The bench** has 5,156 words: phrases from real chats (slang, tech talk, commands, mixed Russian and English) and wordfreq words from common to rare, each typed in the right and in the wrong layout. On top of that come 914 trap words (brands, abbreviations, code) and every misfire seen in real use. A rule is accepted only if the penalty goes down.
+- **The bench** has 5,156 words: phrases from real chats (slang, tech talk, commands, mixed Russian and English) and wordfreq words from common to rare, each typed in the right and in the wrong layout. On top of that come 1,106 trap words (brands, abbreviations, code) and every misfire seen in real use. A rule is accepted only if the penalty goes down.
 - **The key test** runs the real system keyboard hook with real key presses into its own window, Chrome and TextEdit.
-- A misfire found in real use becomes a test for good: there are 10 of them now, and all pass.
+- A misfire found in real use becomes a test for good: there are 15 of them now, and all pass.
 
-| Bench, 26.09.2026 | Words | Broken | Missed |
+| Bench, 02.10.2026, Mac | Words | Broken | Missed |
 |---|---:|---:|---:|
-| Chat: everyday, tech, slang, code | 1,556 | 0 | 22 |
+| Chat: everyday, tech, slang, code | 1,556 | 0 | 13 |
 | Common words (top 2,000) | 1,200 | 0 | 1 |
 | Mid-frequency words | 1,200 | 0 | 9 |
-| Rare words | 1,200 | 4 | 36 |
-| Traps | 914 | 0 | 16 |
+| Rare words | 1,200 | 3 | 35 |
+| Traps | 1,106 | 0 | 12 |
 
 ## FAQ
 
-**Is there a Punto Switcher for Mac?** LayoutFox does the same job on macOS 14 and later: it fixes a word typed in the wrong layout by itself, and double Shift converts a word or the selected text. The Mac and Windows versions share one core and decide the same way.
+**Is there a Punto Switcher for Mac?** LayoutFox does the same job on macOS 14 and later (Macs with M1 or newer): it fixes a word typed in the wrong layout by itself, and double Shift converts a word or the selected text. The Mac and Windows versions share one core and decide the same way.
 
 **Does it work through Parsec and remote desktop?** Yes, with Parsec and with RDP (from a Mac through Windows App). LayoutFox on Windows sees the keys Parsec sends from another computer, which many switchers miss: that's why LayoutFox exists. If LayoutFox also runs on your Mac, it stays quiet in the Parsec and Windows App windows, so a word is never fixed twice. The Windows "Parsec only" mode skips RDP keys, since RDP sends them as an ordinary keyboard. We haven't tested other remote clients; for those, add the client to the exclusions on your Mac.
 
-**How is it different from Caramba and other switchers?** Replacing a word barely makes the line flicker (numbers above), it rarely spoils a correct word (0.13% on the bench), and your text never leaves your computer. Every rule is checked on a 5,156-word bench, and each misfire seen in real use becomes a test.
+**How is it different from Caramba and other switchers?** Replacing a word barely makes the line flicker (numbers above), it rarely spoils a correct word (0.1% on the bench), and your text never leaves your computer. Every rule is checked on a 5,156-word bench, and each misfire seen in real use becomes a test.
 
 ## Install
 
-**macOS 14 or later.** Download [`LayoutFox-mac.zip`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip), unzip it and move LayoutFox.app to Applications. The app is signed with its own certificate rather than Apple's, so macOS won't open it the first time: go to System Settings → Privacy & Security and click "Open Anyway". Then grant Accessibility access; the app shows where.
+**macOS 14 or later, Apple Silicon Mac (M1 or newer).** Download [`LayoutFox-mac.zip`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip), unzip it and move LayoutFox.app to Applications. With Homebrew one command does the same: `brew install --cask danzerzine/tap/layoutfox`. The app is signed with its own certificate rather than Apple's, so macOS won't open it the first time: go to System Settings → Privacy & Security and click "Open Anyway". Then grant Accessibility access; the app shows where.
 
-**Windows.** Needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) (x64). Download [`LayoutFox.exe`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe) and put it in any folder you can write to (not Program Files), or updates won't be able to replace it. It also handles keys that arrive through Parsec from another computer, which many switchers don't see.
+**Windows.** Needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) (x64). Download [`LayoutFox.exe`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe) and put it in any folder you can write to (not Program Files), or updates won't be able to replace it. The exe is not signed, so on the first run Windows may show a blue "Windows protected your PC" window: click "More info", then "Run anyway". It also handles keys that arrive through Parsec from another computer, which many switchers don't see.
 
 The app updates itself: it downloads a new version, checks it against `SHA256SUMS` and asks before installing. What changed in each version is in [CHANGELOG.md](CHANGELOG.md) (in Russian).
 

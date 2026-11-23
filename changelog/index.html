@@ -155,6 +155,11 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 <main class="doc">
 <h1 id="что-нового-в-layoutfox">Что нового в LayoutFox</h1>
 <p>Каждая версия выходит сразу для Windows и macOS. Этот же текст программа показывает, когда предлагает обновиться. Новые версии сверху.</p>
+<h2 id="1012-23112026">1.0.12 — 23.11.2026</h2>
+<ul>
+<li>Сборка для macOS разделена на два отдельных архива: <code>LayoutFox-mac.zip</code> для Apple Silicon (<code>arm64</code>) и <code>LayoutFox-mac-intel.zip</code> для Intel (<code>x86_64</code>) — на Apple Silicon больше не попадает Intel-код, а размер архива уменьшился вдвое (~5,3 МБ).</li>
+<li>Автообновление и Homebrew cask (<code>brew install --cask danzerzine/tap/layoutfox</code>) автоматически выбирают архив под архитектуру Mac.</li>
+</ul>
 <h2 id="1011-23112026">1.0.11 — 23.11.2026</h2>
 <ul>
 <li>Универсальная сборка для macOS: работает на Mac с Apple Silicon и Intel (macOS 14 и новее).</li>
@@ -246,6 +251,6 @@ td[align="right"], th[align="right"] { text-align: right; font-variant-numeric: 
 </ul>
 </main>
 </div>
-<footer class="foot"><a href="https://github.com/danzerzine/LayoutFox-releases">Сборки на GitHub</a> · Версия 1.0.11</footer>
+<footer class="foot"><a href="https://github.com/danzerzine/LayoutFox-releases">Сборки на GitHub</a> · Версия 1.0.12</footer>
 </body>
 </html>

@@ -103,7 +103,7 @@ The ground rule: breaking a correct word is 5 times worse than missing a wrong o
 
 ## FAQ
 
-**Is there a Punto Switcher for Mac?** LayoutFox does the same job on macOS 14 and later (Macs with M1 or newer): it fixes a word typed in the wrong layout by itself, and double Shift converts a word or the selected text. The Mac and Windows versions share one core and decide the same way.
+**Is there a Punto Switcher for Mac?** LayoutFox does the same job on macOS 14 and later (Apple Silicon and Intel): it fixes a word typed in the wrong layout by itself, and double Shift converts a word or the selected text. The Mac and Windows versions share one core and decide the same way.
 
 **Does it work through Parsec and remote desktop?** Yes, with Parsec and with RDP (from a Mac through Windows App). LayoutFox on Windows sees the keys Parsec sends from another computer, which many switchers miss: that's why LayoutFox exists. If LayoutFox also runs on your Mac, it stays quiet in the Parsec and Windows App windows, so a word is never fixed twice. The Windows "Parsec only" mode skips RDP keys, since RDP sends them as an ordinary keyboard. We haven't tested other remote clients; for those, add the client to the exclusions on your Mac.
 
@@ -111,7 +111,7 @@ The ground rule: breaking a correct word is 5 times worse than missing a wrong o
 
 ## Install
 
-**macOS 14 or later, Apple Silicon Mac (M1 or newer).** Download [`LayoutFox-mac.zip`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip), unzip it and move LayoutFox.app to Applications. With Homebrew one command does the same: `brew install --cask danzerzine/tap/layoutfox`. The app is signed with its own certificate rather than Apple's, so macOS won't open it the first time: go to System Settings → Privacy & Security and click "Open Anyway". Then grant Accessibility access; the app shows where.
+**macOS 14 or later (Apple Silicon and Intel).** Download [`LayoutFox-mac.zip`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip), unzip it and move LayoutFox.app to Applications. With Homebrew one command does the same: `brew install --cask danzerzine/tap/layoutfox`. The app is signed with its own certificate rather than Apple's, so macOS won't open it the first time: go to System Settings → Privacy & Security and click "Open Anyway". Then grant Accessibility access; the app shows where.
 
 **Windows.** Needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) (x64). Download [`LayoutFox.exe`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe) and put it in any folder you can write to (not Program Files), or updates won't be able to replace it. The exe is not signed, so on the first run Windows may show a blue "Windows protected your PC" window: click "More info", then "Run anyway". It also handles keys that arrive through Parsec from another computer, which many switchers don't see.
 
@@ -119,7 +119,7 @@ The app updates itself: it downloads a new version, checks it against `SHA256SUM
 
 | | Windows | macOS |
 |---|---|---|
-| Size | exe 4.1 MB | zip 4.5 MB |
+| Size | exe 4.5 MB | zip 10.4 MB |
 | Memory | 32 MB | 45 MB |
 
 The interface is in Russian.

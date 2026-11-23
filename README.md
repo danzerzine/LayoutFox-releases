@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip"><b>Скачать для macOS</b></a>
+  <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip"><b>Скачать для macOS</b></a> (<a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac-intel.zip">Intel</a>)
   &nbsp;·&nbsp;
   <a href="https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe"><b>Скачать для Windows</b></a>
   &nbsp;·&nbsp;
@@ -111,7 +111,7 @@ LayoutFox отправляет стирание и новое слово одн�
 
 ## Установка
 
-**macOS 14 и новее (Apple Silicon и Intel).** Скачайте [`LayoutFox-mac.zip`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip), распакуйте и перенесите LayoutFox.app в «Программы». С Homebrew то же самое делает одна команда: `brew install --cask danzerzine/tap/layoutfox`. Приложение подписано собственным сертификатом, а не Apple, поэтому при первом запуске macOS его не откроет: зайдите в «Системные настройки → Конфиденциальность и безопасность» и нажмите «Всё равно открыть». Потом дайте доступ в «Универсальном доступе», окно само подскажет, где это.
+**macOS 14 и новее (Apple Silicon и Intel).** Скачайте [`LayoutFox-mac.zip`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac.zip) для Apple Silicon или [`LayoutFox-mac-intel.zip`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox-mac-intel.zip) для Intel, распакуйте и перенесите LayoutFox.app в «Программы». С Homebrew то же самое делает одна команда: `brew install --cask danzerzine/tap/layoutfox` (архитектура выбирается автоматически). Приложение подписано собственным сертификатом, а не Apple, поэтому при первом запуске macOS его не откроет: зайдите в «Системные настройки → Конфиденциальность и безопасность» и нажмите «Всё равно открыть». Потом дайте доступ в «Универсальном доступе», окно само подскажет, где это.
 
 **Windows.** Нужен [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) (x64). Скачайте [`LayoutFox.exe`](https://github.com/danzerzine/LayoutFox-releases/releases/latest/download/LayoutFox.exe) и положите в любую папку, где у вас есть право записи (не в Program Files), иначе обновление не сможет его заменить. Программа не подписана, поэтому при первом запуске Windows может показать синее окно «Windows защитила ваш компьютер»: нажмите «Подробнее», потом «Выполнить в любом случае». Работает и с клавиатурой, которая приходит через Parsec с другого компьютера: многие переключатели такие нажатия не видят.
 
@@ -119,7 +119,7 @@ LayoutFox отправляет стирание и новое слово одн�
 
 | | Windows | macOS |
 |---|---|---|
-| Размер | exe 4,5 МБ | zip 10,4 МБ |
+| Размер | exe 4,5 МБ | zip 5,3 МБ |
 | Память | 32 МБ | 45 МБ |
 
 ---
